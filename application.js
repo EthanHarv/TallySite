@@ -1,9 +1,12 @@
+var testLine = "o1p2";
+
 (function() {
     'use strict';
   
     document.addEventListener('DOMContentLoaded', event => {
       let connectButton = document.querySelector("#connect");
       let statusDisplay = document.querySelector('#status');
+      let send1 = document.querySelector('#send1');
       let port;
   
       function addLine(linesId, text) {
@@ -85,6 +88,13 @@
         }
   
         port.send(new TextEncoder('utf-8').encode(String.fromCharCode(event.which || event.keyCode)));
+      });
+
+      send1.addEventListener('click', function() {
+        if (port) {
+            port.send(new TextEncoder('utf-8').encode(testLine));
+            console.log("Sending " + testLine);
+        };
       });
     });
   })();
