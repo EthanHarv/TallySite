@@ -1,4 +1,5 @@
-var testLine = "o1p2";
+var live = "1";
+var preview = "2";
 
 (function() {
     'use strict';
@@ -91,10 +92,9 @@ var testLine = "o1p2";
       });
 
       sender.addEventListener('click', function() {
-        console.log('ae');
         if (port) {
-            port.send(new TextEncoder('utf-8').encode(testLine));
-            console.log("Sending " + testLine);
+            port.send(new TextEncoder('utf-8').encode("l" + live));
+            port.send(new TextEncoder('utf-8').encode("p" + preview));
         };
       });
     });
