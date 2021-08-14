@@ -6,7 +6,7 @@ var testLine = "o1p2";
     document.addEventListener('DOMContentLoaded', event => {
       let connectButton = document.querySelector("#connect");
       let statusDisplay = document.querySelector('#status');
-      let send1 = document.querySelector('#send1');
+      let sender = document.querySelector('#sender');
       let port;
   
       function addLine(linesId, text) {
@@ -90,7 +90,8 @@ var testLine = "o1p2";
         port.send(new TextEncoder('utf-8').encode(String.fromCharCode(event.which || event.keyCode)));
       });
 
-      send1.addEventListener('click', function() {
+      sender.addEventListener('click', function() {
+        console.log('ae');
         if (port) {
             port.send(new TextEncoder('utf-8').encode(testLine));
             console.log("Sending " + testLine);
